@@ -1,0 +1,326 @@
+2025-04-19 23:29:57,106 - DEBUG - STREAM b'IHDR' 16 13
+2025-04-19 23:29:57,107 - DEBUG - STREAM b'sBIT' 41 4
+2025-04-19 23:29:57,108 - DEBUG - b'sBIT' 41 4 (unknown)
+2025-04-19 23:29:57,109 - DEBUG - STREAM b'pHYs' 57 9
+2025-04-19 23:29:57,109 - DEBUG - STREAM b'tEXt' 78 25
+2025-04-19 23:29:57,109 - DEBUG - STREAM b'IDAT' 115 8192
+2025-04-19 23:29:57,131 - DEBUG - STREAM b'IHDR' 16 13
+2025-04-19 23:29:57,132 - DEBUG - STREAM b'pHYs' 41 9
+2025-04-19 23:29:57,133 - DEBUG - STREAM b'tEXt' 62 25
+2025-04-19 23:29:57,133 - DEBUG - STREAM b'IDAT' 99 8192
+2025-04-19 23:29:57,140 - DEBUG - STREAM b'IHDR' 16 13
+2025-04-19 23:29:57,141 - DEBUG - STREAM b'sBIT' 41 4
+2025-04-19 23:29:57,142 - DEBUG - b'sBIT' 41 4 (unknown)
+2025-04-19 23:29:57,142 - DEBUG - STREAM b'pHYs' 57 9
+2025-04-19 23:29:57,142 - DEBUG - STREAM b'tEXt' 78 25
+2025-04-19 23:29:57,142 - DEBUG - STREAM b'IDAT' 115 8192
+2025-04-19 23:29:57,151 - DEBUG - STREAM b'IHDR' 16 13
+2025-04-19 23:29:57,151 - DEBUG - STREAM b'pHYs' 41 9
+2025-04-19 23:29:57,152 - DEBUG - STREAM b'tEXt' 62 25
+2025-04-19 23:29:57,152 - DEBUG - STREAM b'IDAT' 99 5378
+2025-04-19 23:29:57,160 - DEBUG - STREAM b'IHDR' 16 13
+2025-04-19 23:29:57,160 - DEBUG - STREAM b'pHYs' 41 9
+2025-04-19 23:29:57,161 - DEBUG - STREAM b'tEXt' 62 25
+2025-04-19 23:29:57,161 - DEBUG - STREAM b'IDAT' 99 8192
+2025-04-19 23:29:57,170 - DEBUG - STREAM b'IHDR' 16 13
+2025-04-19 23:29:57,170 - DEBUG - STREAM b'sBIT' 41 4
+2025-04-19 23:29:57,171 - DEBUG - b'sBIT' 41 4 (unknown)
+2025-04-19 23:29:57,171 - DEBUG - STREAM b'pHYs' 57 9
+2025-04-19 23:29:57,171 - DEBUG - STREAM b'tEXt' 78 25
+2025-04-19 23:29:57,172 - DEBUG - STREAM b'IDAT' 115 8192
+2025-04-19 23:30:03,097 - INFO - Started processing: Video: motion_20250419_231713.avi, FPS: 30.00
+2025-04-19 23:30:03,152 - DEBUG - Processing time: 53.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:05,382 - DEBUG - Processing time: 2224.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:05,514 - DEBUG - Processing time: 127.82ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:05,633 - DEBUG - Processing time: 116.01ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:05,764 - DEBUG - Processing time: 124.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:05,913 - DEBUG - Processing time: 145.83ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,076 - DEBUG - Processing time: 160.50ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,189 - DEBUG - Processing time: 108.95ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,282 - DEBUG - Processing time: 88.75ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,383 - DEBUG - Processing time: 98.36ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,499 - DEBUG - Processing time: 111.28ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,624 - DEBUG - Processing time: 122.94ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,742 - DEBUG - Processing time: 114.85ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:06,875 - DEBUG - Processing time: 130.16ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,004 - DEBUG - Processing time: 125.60ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,137 - DEBUG - Processing time: 130.10ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,285 - DEBUG - Processing time: 144.36ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,426 - DEBUG - Processing time: 139.20ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,561 - DEBUG - Processing time: 132.37ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,693 - DEBUG - Processing time: 129.94ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,841 - DEBUG - Processing time: 143.79ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:07,996 - DEBUG - Processing time: 151.36ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:08,145 - DEBUG - Processing time: 145.78ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:08,278 - DEBUG - Processing time: 128.74ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:08,420 - DEBUG - Processing time: 139.92ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:08,551 - DEBUG - Processing time: 128.55ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:08,680 - DEBUG - Processing time: 125.52ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:08,801 - DEBUG - Processing time: 118.36ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:08,934 - DEBUG - Processing time: 125.60ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:09,109 - DEBUG - Processing time: 172.53ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:09,243 - DEBUG - Processing time: 129.73ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:09,380 - DEBUG - Processing time: 134.93ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:09,519 - DEBUG - Processing time: 135.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:09,653 - DEBUG - Processing time: 131.35ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:09,795 - DEBUG - Processing time: 139.73ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:09,942 - DEBUG - Processing time: 122.67ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:10,091 - DEBUG - Processing time: 124.35ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:10,224 - DEBUG - Processing time: 121.04ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:10,362 - DEBUG - Processing time: 124.83ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:10,500 - DEBUG - Processing time: 133.40ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:10,632 - DEBUG - Processing time: 128.05ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:10,774 - DEBUG - Processing time: 135.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:10,906 - DEBUG - Processing time: 129.42ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:11,039 - DEBUG - Processing time: 130.15ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:11,170 - DEBUG - Processing time: 128.41ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:11,302 - DEBUG - Processing time: 128.27ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:11,436 - DEBUG - Processing time: 130.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:11,585 - DEBUG - Processing time: 145.96ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:11,728 - DEBUG - Processing time: 139.98ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:11,870 - DEBUG - Processing time: 137.49ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,005 - DEBUG - Processing time: 130.93ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,140 - DEBUG - Processing time: 129.94ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,281 - DEBUG - Processing time: 136.82ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,419 - DEBUG - Processing time: 128.62ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,549 - DEBUG - Processing time: 127.18ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,690 - DEBUG - Processing time: 135.89ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,829 - DEBUG - Processing time: 134.79ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:12,966 - DEBUG - Processing time: 133.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:13,105 - DEBUG - Processing time: 136.54ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:13,242 - DEBUG - Processing time: 134.16ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:13,384 - DEBUG - Processing time: 140.01ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:13,504 - DEBUG - Processing time: 116.03ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:13,619 - DEBUG - Processing time: 112.85ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:13,757 - DEBUG - Processing time: 135.04ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:13,892 - DEBUG - Processing time: 130.40ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:14,029 - DEBUG - Processing time: 131.47ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:19,402 - INFO - Started processing: Camera, FPS: 30.00
+2025-04-19 23:30:19,852 - DEBUG - Processing time: 435.15ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,039 - DEBUG - Processing time: 181.13ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,156 - DEBUG - Processing time: 114.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,260 - DEBUG - Processing time: 101.55ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,364 - DEBUG - Processing time: 101.09ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,475 - DEBUG - Processing time: 108.58ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,581 - DEBUG - Processing time: 105.05ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,685 - DEBUG - Processing time: 102.53ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,793 - DEBUG - Processing time: 106.30ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,890 - DEBUG - Processing time: 95.13ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:20,981 - DEBUG - Processing time: 89.55ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,081 - DEBUG - Processing time: 98.64ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,192 - DEBUG - Processing time: 109.94ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,304 - DEBUG - Processing time: 109.08ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,440 - DEBUG - Processing time: 133.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,551 - DEBUG - Processing time: 109.34ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,670 - DEBUG - Processing time: 117.47ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,812 - DEBUG - Processing time: 139.66ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:21,933 - DEBUG - Processing time: 119.51ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,054 - DEBUG - Processing time: 119.16ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,167 - DEBUG - Processing time: 111.20ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,278 - DEBUG - Processing time: 108.58ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,390 - DEBUG - Processing time: 110.43ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,503 - DEBUG - Processing time: 110.98ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,619 - DEBUG - Processing time: 113.59ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,735 - DEBUG - Processing time: 114.32ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,865 - DEBUG - Processing time: 127.93ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:22,990 - DEBUG - Processing time: 123.17ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,099 - DEBUG - Processing time: 107.21ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,211 - DEBUG - Processing time: 109.72ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,325 - DEBUG - Processing time: 111.69ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,435 - DEBUG - Processing time: 108.43ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,561 - DEBUG - Processing time: 123.56ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,686 - DEBUG - Processing time: 123.83ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,808 - DEBUG - Processing time: 120.00ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:23,923 - DEBUG - Processing time: 112.69ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,041 - DEBUG - Processing time: 114.80ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,138 - DEBUG - Processing time: 95.43ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,239 - DEBUG - Processing time: 99.11ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,348 - DEBUG - Processing time: 107.01ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,457 - DEBUG - Processing time: 107.23ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,567 - DEBUG - Processing time: 107.75ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,676 - DEBUG - Processing time: 108.20ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,802 - DEBUG - Processing time: 123.17ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:24,925 - DEBUG - Processing time: 118.99ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,064 - DEBUG - Processing time: 136.26ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,178 - DEBUG - Processing time: 111.75ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,292 - DEBUG - Processing time: 111.67ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,411 - DEBUG - Processing time: 116.28ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,538 - DEBUG - Processing time: 124.27ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,661 - DEBUG - Processing time: 118.57ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,782 - DEBUG - Processing time: 119.07ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:25,908 - DEBUG - Processing time: 124.29ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,026 - DEBUG - Processing time: 115.87ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,149 - DEBUG - Processing time: 121.93ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,267 - DEBUG - Processing time: 115.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,398 - DEBUG - Processing time: 128.95ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,519 - DEBUG - Processing time: 119.32ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,648 - DEBUG - Processing time: 127.51ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,783 - DEBUG - Processing time: 131.99ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:26,899 - DEBUG - Processing time: 113.37ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,023 - DEBUG - Processing time: 122.75ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,155 - DEBUG - Processing time: 129.97ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,285 - DEBUG - Processing time: 127.00ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,402 - DEBUG - Processing time: 114.68ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,526 - DEBUG - Processing time: 121.19ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,659 - DEBUG - Processing time: 131.41ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,816 - DEBUG - Processing time: 153.69ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:27,957 - DEBUG - Processing time: 137.51ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:28,106 - DEBUG - Processing time: 144.44ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:28,241 - DEBUG - Processing time: 132.53ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:28,377 - DEBUG - Processing time: 133.29ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:28,517 - DEBUG - Processing time: 137.56ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:28,658 - DEBUG - Processing time: 138.41ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:28,800 - DEBUG - Processing time: 139.54ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:28,929 - DEBUG - Processing time: 125.80ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,058 - DEBUG - Processing time: 126.68ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,185 - DEBUG - Processing time: 124.80ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,309 - DEBUG - Processing time: 121.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,431 - DEBUG - Processing time: 120.26ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,556 - DEBUG - Processing time: 119.76ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,692 - DEBUG - Processing time: 134.43ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,820 - DEBUG - Processing time: 125.47ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:29,949 - DEBUG - Processing time: 127.33ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:30,086 - DEBUG - Processing time: 133.43ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:30,217 - DEBUG - Processing time: 128.82ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:30,344 - DEBUG - Processing time: 124.40ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:30,458 - DEBUG - Processing time: 111.82ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:30,594 - DEBUG - Processing time: 133.19ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:30,728 - DEBUG - Processing time: 130.94ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:30,868 - DEBUG - Processing time: 137.93ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,000 - DEBUG - Processing time: 129.09ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,113 - DEBUG - Processing time: 110.95ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,234 - DEBUG - Processing time: 119.12ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,347 - DEBUG - Processing time: 109.60ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,451 - DEBUG - Processing time: 102.28ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,559 - DEBUG - Processing time: 106.98ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,677 - DEBUG - Processing time: 116.05ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,784 - DEBUG - Processing time: 105.66ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:31,895 - DEBUG - Processing time: 109.19ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,000 - DEBUG - Processing time: 103.02ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,107 - DEBUG - Processing time: 105.88ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,267 - DEBUG - Processing time: 157.67ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,402 - DEBUG - Processing time: 132.02ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,534 - DEBUG - Processing time: 128.80ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,665 - DEBUG - Processing time: 128.95ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,793 - DEBUG - Processing time: 125.09ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:32,915 - DEBUG - Processing time: 119.74ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,041 - DEBUG - Processing time: 124.47ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,170 - DEBUG - Processing time: 126.54ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,289 - DEBUG - Processing time: 117.04ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,417 - DEBUG - Processing time: 126.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,548 - DEBUG - Processing time: 128.52ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,679 - DEBUG - Processing time: 127.79ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,805 - DEBUG - Processing time: 123.18ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:33,934 - DEBUG - Processing time: 127.38ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,064 - DEBUG - Processing time: 127.00ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,196 - DEBUG - Processing time: 129.19ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,328 - DEBUG - Processing time: 128.50ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,447 - DEBUG - Processing time: 115.52ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,575 - DEBUG - Processing time: 124.59ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,707 - DEBUG - Processing time: 128.67ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,834 - DEBUG - Processing time: 124.86ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:34,953 - DEBUG - Processing time: 117.52ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:35,083 - DEBUG - Processing time: 126.83ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:35,217 - DEBUG - Processing time: 132.07ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:35,355 - DEBUG - Processing time: 135.31ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:35,477 - DEBUG - Processing time: 119.67ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:35,598 - DEBUG - Processing time: 117.87ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:35,763 - DEBUG - Processing time: 161.93ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:35,899 - DEBUG - Processing time: 134.52ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:36,045 - DEBUG - Processing time: 143.63ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:36,187 - DEBUG - Processing time: 139.03ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:36,335 - DEBUG - Processing time: 144.74ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:36,496 - DEBUG - Processing time: 157.42ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:36,648 - DEBUG - Processing time: 148.37ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:36,801 - DEBUG - Processing time: 150.58ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:36,948 - DEBUG - Processing time: 143.53ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:37,103 - DEBUG - Processing time: 153.12ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:37,262 - DEBUG - Processing time: 155.95ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:37,420 - DEBUG - Processing time: 154.17ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:37,557 - DEBUG - Processing time: 135.51ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:37,699 - DEBUG - Processing time: 138.79ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:37,838 - DEBUG - Processing time: 134.91ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:37,973 - DEBUG - Processing time: 132.66ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,111 - DEBUG - Processing time: 133.62ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,240 - DEBUG - Processing time: 125.68ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,363 - DEBUG - Processing time: 120.34ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,493 - DEBUG - Processing time: 127.97ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,622 - DEBUG - Processing time: 125.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,738 - DEBUG - Processing time: 113.03ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,872 - DEBUG - Processing time: 131.29ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:38,990 - DEBUG - Processing time: 115.60ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:39,129 - DEBUG - Processing time: 136.76ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:39,272 - DEBUG - Processing time: 140.34ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:39,415 - DEBUG - Processing time: 139.98ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:39,532 - DEBUG - Processing time: 114.71ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:39,685 - DEBUG - Processing time: 150.60ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:39,827 - DEBUG - Processing time: 139.63ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:39,964 - DEBUG - Processing time: 134.94ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:40,100 - DEBUG - Processing time: 133.32ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:40,236 - DEBUG - Processing time: 132.27ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:40,365 - DEBUG - Processing time: 126.79ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:40,489 - DEBUG - Processing time: 121.91ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:40,624 - DEBUG - Processing time: 131.13ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:40,756 - DEBUG - Processing time: 129.63ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:40,890 - DEBUG - Processing time: 130.83ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,022 - DEBUG - Processing time: 129.94ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,151 - DEBUG - Processing time: 126.06ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,266 - DEBUG - Processing time: 113.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,392 - DEBUG - Processing time: 124.07ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,529 - DEBUG - Processing time: 133.80ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,657 - DEBUG - Processing time: 126.43ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,780 - DEBUG - Processing time: 120.28ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:41,916 - DEBUG - Processing time: 133.65ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,047 - DEBUG - Processing time: 129.39ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,152 - DEBUG - Processing time: 102.72ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,269 - DEBUG - Processing time: 115.17ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,394 - DEBUG - Processing time: 120.69ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,535 - DEBUG - Processing time: 139.00ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,671 - DEBUG - Processing time: 133.80ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,809 - DEBUG - Processing time: 135.59ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:42,948 - DEBUG - Processing time: 136.39ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:43,102 - DEBUG - Processing time: 152.21ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:43,259 - DEBUG - Processing time: 152.45ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:43,447 - DEBUG - Processing time: 185.87ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:43,593 - DEBUG - Processing time: 143.86ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:43,739 - DEBUG - Processing time: 143.97ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:43,893 - DEBUG - Processing time: 149.04ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,030 - DEBUG - Processing time: 134.42ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,169 - DEBUG - Processing time: 135.99ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,309 - DEBUG - Processing time: 135.89ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,443 - DEBUG - Processing time: 132.55ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,582 - DEBUG - Processing time: 136.70ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,720 - DEBUG - Processing time: 135.25ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,851 - DEBUG - Processing time: 126.22ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:44,967 - DEBUG - Processing time: 112.28ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,087 - DEBUG - Processing time: 118.28ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,243 - DEBUG - Processing time: 152.72ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,358 - DEBUG - Processing time: 111.65ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,491 - DEBUG - Processing time: 130.91ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,609 - DEBUG - Processing time: 116.07ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,736 - DEBUG - Processing time: 122.48ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,841 - DEBUG - Processing time: 102.97ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:45,945 - DEBUG - Processing time: 100.12ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,077 - DEBUG - Processing time: 130.29ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,217 - DEBUG - Processing time: 137.66ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,346 - DEBUG - Processing time: 124.52ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,467 - DEBUG - Processing time: 116.89ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,576 - DEBUG - Processing time: 106.43ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,702 - DEBUG - Processing time: 122.58ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,849 - DEBUG - Processing time: 142.62ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:46,986 - DEBUG - Processing time: 132.64ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,121 - DEBUG - Processing time: 130.76ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,245 - DEBUG - Processing time: 121.08ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,366 - DEBUG - Processing time: 117.30ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,489 - DEBUG - Processing time: 121.03ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,610 - DEBUG - Processing time: 117.26ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,718 - DEBUG - Processing time: 105.38ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,842 - DEBUG - Processing time: 121.22ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:47,974 - DEBUG - Processing time: 128.83ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:48,098 - DEBUG - Processing time: 121.54ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:48,213 - DEBUG - Processing time: 111.38ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:48,317 - DEBUG - Processing time: 102.35ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:48,423 - DEBUG - Processing time: 103.46ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:48,530 - DEBUG - Processing time: 105.24ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:48,660 - DEBUG - Processing time: 127.50ms, Target delay: 33.00ms, Adjusted delay: 1.00ms
+2025-04-19 23:30:48,772 - DEBUG - Processing time: 109.61ms, Target delay: 33.00ms, Adjusted delay: 1.00ms

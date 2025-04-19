@@ -8,6 +8,7 @@ from tkinter import filedialog, messagebox
 from tkinter import ttk
 from PIL import Image, ImageTk
 import time
+import tkinter.font as tkFont
 from src.utils import load_config, setup_logger, get_output_writer, initialize_capture
 from src.detector import MotionDetector
 
@@ -15,24 +16,29 @@ class MotionDetectionApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Moving Detection Software")
-        self.root.configure(bg="#1246b5")  # Nền xanh dương đậm
+        self.root.configure(bg="#1246b5")
 
-        # Căn giữa cửa sổ trên màn hình
-        window_width = 900  # Ước lượng chiều rộng cửa sổ
-        window_height = 610  # Ước lượng chiều cao cửa sổ
+        # Font đậm và lớn cho tiêu đề
+        bold_font = tkFont.Font(family="Arial", size=16, weight="bold")
+        self.root.option_add("*Toplevel*TitleFont", bold_font)
+
+        # Căn giữa cửa sổ
+        window_width = 900
+        window_height = 615
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
         x = (screen_width - window_width) // 2
         y = (screen_height - window_height) // 2
         self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
 
-        # Khởi tạo logger trước
+        # Khởi tạo logger
         self.config = load_config("config/settings.yaml")
         self.logger = setup_logger(self.config['log']['log_dir'])
 
-        # Đặt icon cửa sổ
+        # Đặt icon cửa sổ (64x64 px)
         try:
-            self.root.iconphoto(True, tk.PhotoImage(file="icons/cctv-camera.png"))
+            icon = tk.PhotoImage(file="icons/cctv-camera.png")
+            self.root.iconphoto(True, icon)
         except Exception as e:
             print(f"Không thể tải icon cửa sổ: {str(e)}")
             self.logger.error(f"Không thể tải icon cửa sổ: {str(e)}")
@@ -41,20 +47,24 @@ class MotionDetectionApp:
         self.out = None
         self.detector = None
         self.running = False
+        self.viewing_video = False
         self.motion_detected = False
         self.frame_width = self.config['video']['frame_width']
         self.frame_height = None
         self.motion_start_time = None
         self.latest_snapshot = None
-        self.source_fps = self.config['video']['fps']  # FPS mặc định
-        self.frame_counter = 0  # Đếm số khung hình ghi
+        self.source_fps = self.config['video']['fps']
+        self.frame_counter = 0
+        self.current_video_path = None
 
         # Tải icon nút
         self.icons = {
             "open_camera": self.load_icon("icons/camera.png", (24, 24)),
             "upload_video": self.load_icon("icons/upload.png", (24, 24)),
             "reset_background": self.load_icon("icons/reset.png", (24, 24)),
-            "stop": self.load_icon("icons/stop.png", (24, 24))
+            "stop": self.load_icon("icons/stop.png", (24, 24)),
+            "view_video": self.load_icon("icons/play.png", (24, 24)),
+            # "delete_video": self.load_icon("icons/delete.png", (24, 24))
         }
 
         # Style cho nút
@@ -69,6 +79,10 @@ class MotionDetectionApp:
         style.map("Reset.TButton", background=[('active', '#ffbb33'), ('disabled', '#cccccc')], foreground=[('active', 'black')])
         style.configure("Stop.TButton", background="#ff3333", foreground="black", font=("Arial", 10, "bold"), borderwidth=3, relief="flat")
         style.map("Stop.TButton", background=[('active', '#ff6666'), ('disabled', '#cccccc')], foreground=[('active', 'black')])
+        style.configure("View.TButton", background="#4b0082", foreground="black", font=("Arial", 10, "bold"), borderwidth=3, relief="flat")
+        style.map("View.TButton", background=[('active', '#6a0dad'), ('disabled', '#cccccc')], foreground=[('active', 'black')])
+        # style.configure("Delete.TButton", background="#dc143c", foreground="black", font=("Arial", 10, "bold"), borderwidth=3, relief="flat")
+        # style.map("Delete.TButton", background=[('active', '#ff4040'), ('disabled', '#cccccc')], foreground=[('active', 'black')])
 
         # Main frame
         self.main_frame = ttk.Frame(root, style="Rounded.TFrame")
@@ -121,12 +135,23 @@ class MotionDetectionApp:
         )
         self.stop_btn.pack(side=tk.LEFT, padx=5)
 
+        self.view_btn = ttk.Button(
+            self.button_frame, text=" View Video", image=self.icons["view_video"], compound=tk.LEFT,
+            command=self.view_video, style="View.TButton"
+        )
+        self.view_btn.pack(side=tk.LEFT, padx=5)
+
+        # self.delete_btn = ttk.Button(
+        #     self.button_frame, text=" Delete Video", image=self.icons["delete_video"], compound=tk.LEFT,
+        #     command=self.delete_video, style="Delete.TButton", state=tk.DISABLED
+        # )
+        # self.delete_btn.pack(side=tk.LEFT, padx=5)
+
         self.start_time = time.time()
         self.frame_count = 0
         self.last_frame_time = None
 
     def load_icon(self, path, size):
-        """Tải và resize icon."""
         try:
             img = Image.open(path).resize(size, Image.Resampling.LANCZOS)
             return ImageTk.PhotoImage(img)
@@ -134,19 +159,124 @@ class MotionDetectionApp:
             self.logger.error(f"Không thể tải icon {path}: {str(e)}")
             return None
 
+    def view_video(self):
+        """Phát video từ data/output trong canvas."""
+        if self.running or self.viewing_video:
+            messagebox.showwarning("Warning", "Đang xử lý hoặc xem video khác. Vui lòng dừng trước!")
+            return
+
+        file_path = filedialog.askopenfilename(
+            initialdir="data/output",
+            filetypes=[("Video files", "*.avi"), ("All files", "*.*")]
+        )
+        if file_path:
+            try:
+                # Kiểm tra file tồn tại
+                if not os.path.exists(file_path):
+                    raise ValueError("File video không tồn tại.")
+                # Thử mở video
+                self.cap = cv2.VideoCapture(file_path)
+                if not self.cap.isOpened():
+                    raise ValueError("Không thể mở video. Đảm bảo file .avi dùng codec mp4v.")
+                # Kiểm tra khung hình đầu tiên
+                ret, frame = self.cap.read()
+                if not ret or frame is None:
+                    raise ValueError("Không thể đọc khung hình từ video.")
+                self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)  # Reset về đầu video
+                # Đặt trạng thái sau khi xác nhận video hợp lệ
+                self.current_video_path = file_path
+                self.source_fps = self.cap.get(cv2.CAP_PROP_FPS) or self.config['video']['fps']
+                self.frame_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT) * self.frame_width / self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                self.viewing_video = True
+                self.open_camera_btn.config(state='disabled')
+                self.upload_video_btn.config(state='disabled')
+                self.view_btn.config(state='disabled')
+                # self.delete_btn.config(state='normal')
+                self.stop_btn.config(state='normal')
+                self.status_label.config(text=f"Status: Viewing {os.path.basename(file_path)}")
+                self.logger.info(f"Đang phát video: {file_path}, FPS: {self.source_fps}")
+                self.play_video()
+            except Exception as e:
+                self.logger.error(f"Lỗi khi phát video {file_path}: {str(e)}")
+                messagebox.showerror("Error", f"Không thể phát video: {str(e)}")
+                if self.cap:
+                    self.cap.release()
+                self.cap = None
+                self.current_video_path = None
+                self.viewing_video = False
+                # self.delete_btn.config(state='disabled')
+                self.stop_btn.config(state='disabled')
+                self.status_label.config(text="Status: Idle")
+
+    def play_video(self):
+        """Vòng lặp phát video trong canvas."""
+        if not self.viewing_video or not self.cap or not self.cap.isOpened():
+            self.logger.warning("Dừng phát video: viewing=%s, cap=%s, cap.isOpened=%s",
+                               self.viewing_video, self.cap is not None, self.cap.isOpened() if self.cap else False)
+            self.stop()
+            return
+
+        start_time = time.time()
+        ret, frame = self.cap.read()
+        if not ret or frame is None:
+            self.logger.info("Video kết thúc, quay lại đầu")
+            self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+            ret, frame = self.cap.read()
+            if not ret or frame is None:
+                self.logger.error("Không thể quay lại đầu video")
+                self.stop()
+                return
+
+        try:
+            frame = cv2.resize(frame, (self.frame_width, self.frame_height))
+            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            img = Image.fromarray(frame_rgb)
+            img = ImageTk.PhotoImage(img)
+            self.canvas.create_image(0, 0, anchor=tk.NW, image=img)
+            self.canvas.image = img
+        except Exception as e:
+            self.logger.error(f"Lỗi hiển thị khung hình video: {str(e)}")
+            self.stop()
+            return
+
+        self.frame_count += 1
+        if self.frame_count % 10 == 0:
+            elapsed = time.time() - self.start_time
+            fps = self.frame_count / elapsed
+            self.fps_label.config(text=f"FPS: {fps:.2f}")
+
+        processing_time = (time.time() - start_time) * 1000
+        target_delay = max(1, int(1000 / self.source_fps))
+        adjusted_delay = max(1, int(target_delay - processing_time))
+        if self.viewing_video:
+            self.root.after(adjusted_delay, self.play_video)
+
+    # def delete_video(self):
+    #     """Xóa video đang xem."""
+    #     if not self.viewing_video or self.current_video_path is None or not os.path.exists(self.current_video_path):
+    #         messagebox.showwarning("Warning", "Không có video nào đang được chọn để xóa.")
+    #         return
+
+    #     if messagebox.askyesno("Xác nhận", f"Bạn có chắc muốn xóa video {os.path.basename(self.current_video_path)}?"):
+    #         try:
+    #             self.stop()  # Dừng phát trước khi xóa
+    #             os.remove(self.current_video_path)
+    #             self.logger.info(f"Đã xóa video: {self.current_video_path}")
+    #             messagebox.showinfo("Success", f"Video {os.path.basename(self.current_video_path)} đã được xóa.")
+    #         except Exception as e:
+    #             self.logger.error(f"Lỗi khi xóa video {self.current_video_path}: {str(e)}")
+    #             messagebox.showerror("Error", f"Không thể xóa video: {str(e)}")
+
     def open_camera(self):
-        if not self.running:
+        if not self.running and not self.viewing_video:
             self.config['video']['source'] = 'camera'
             self.start_processing()
 
     def upload_video(self):
-        if not self.running:
+        if not self.running and not self.viewing_video:
             file_path = filedialog.askopenfilename(
                 initialdir="data/",
-                filetypes=[
-                    ("Video files", "*.mp4 *.avi *.wmv *.mkv *.vob *.flv"),
-                    ("All files", "*.*")
-                ]
+                filetypes=[("Video files", "*.avi"), ("All files", "*.*")]
             )
             if file_path:
                 self.config['video']['source'] = 'video'
@@ -157,11 +287,11 @@ class MotionDetectionApp:
                 except ValueError as e:
                     error_msg = str(e)
                     self.logger.error(f"Lỗi khi upload video {file_path}: {error_msg}")
-                    messagebox.showerror("Error", f"{error_msg}\nĐảm bảo video hợp lệ và FFmpeg được cài đặt.")
+                    messagebox.showerror("Error", f"{error_msg}\nĐảm bảo video .avi dùng codec mp4v.")
                 except Exception as e:
                     error_msg = f"Lỗi không xác định: {str(e)}"
                     self.logger.error(f"Lỗi không xác định khi upload video {file_path}: {error_msg}")
-                    messagebox.showerror("Error", f"{error_msg}\nVui lòng kiểm tra file video hoặc liên hệ hỗ trợ.")
+                    messagebox.showerror("Error", f"{error_msg}\nVui lòng kiểm tra file video.")
 
     def reset_background(self):
         if self.detector:
@@ -176,15 +306,16 @@ class MotionDetectionApp:
             self.frame_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT) * self.frame_width / self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
             self.detector = MotionDetector(self.config)
             self.running = True
-            self.frame_counter = 0  # Reset bộ đếm khung hình
+            self.frame_counter = 0
             self.open_camera_btn.config(state='disabled')
             self.upload_video_btn.config(state='disabled')
+            self.view_btn.config(state='disabled')
+            # self.delete_btn.config(state='disabled')
             self.reset_btn.config(state='normal')
             self.stop_btn.config(state='normal')
             self.logger.info("Started processing: %s, FPS: %.2f", source_info, self.source_fps)
             self.status_label.config(text=f"Status: {source_info}")
 
-            # Khởi tạo VideoWriter cho camera
             if self.config['video']['source'] == 'camera':
                 timestamp = time.strftime("%Y%m%d_%H%M%S")
                 self.out, output_path = get_output_writer(self.config, self.frame_height, timestamp, self.source_fps)
@@ -232,12 +363,10 @@ class MotionDetectionApp:
             self.logger.error(f"Lỗi khi xử lý khung hình: {str(e)}")
             return
 
-        # Ghi tất cả khung hình khi VideoWriter tồn tại
         if self.out is not None:
             self.out.write(processed_frame)
             self.frame_counter += 1
 
-        # Lưu snapshot khi có chuyển động
         if motion_detected_now:
             if self.motion_start_time is None:
                 self.motion_start_time = time.time()
@@ -275,7 +404,6 @@ class MotionDetectionApp:
             self.root.after(adjusted_delay, self.process_frames)
 
     def update_snapshot(self, snapshot_path):
-        """Hiển thị ảnh chụp mới nhất."""
         try:
             img = Image.open(snapshot_path)
             img = img.resize((160, 120), Image.Resampling.LANCZOS)
@@ -286,6 +414,7 @@ class MotionDetectionApp:
 
     def stop(self):
         self.running = False
+        self.viewing_video = False
         if self.out is not None:
             self.logger.info(f"Đã ghi {self.frame_counter} khung hình vào video")
             self.out.release()
@@ -295,15 +424,18 @@ class MotionDetectionApp:
         if self.cap is not None:
             self.cap.release()
             self.cap = None
-        self.canvas.delete("all")
-        self.snapshot_canvas.delete("all")
+        # self.canvas.delete("all")
+        # self.snapshot_canvas.delete("all")
         self.status_label.config(text="Status: Idle")
         self.fps_label.config(text="FPS: 0.00")
         self.open_camera_btn.config(state='normal')
         self.upload_video_btn.config(state='normal')
+        self.view_btn.config(state='normal')
+        # self.delete_btn.config(state='disabled')
         self.reset_btn.config(state='disabled')
         self.stop_btn.config(state='disabled')
         self.motion_start_time = None
+        self.current_video_path = None
         self.logger.info("Đã dừng xử lý bởi người dùng")
 
     def on_closing(self):
