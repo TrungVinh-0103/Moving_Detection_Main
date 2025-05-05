@@ -75,4 +75,3 @@ class MotionDetector:
         """Reset nền để cập nhật lại."""
         self.first_frame = None
         self.prev_frame = None
-
