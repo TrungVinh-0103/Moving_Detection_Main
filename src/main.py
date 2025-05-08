@@ -437,8 +437,7 @@ class MotionDetectionApp:
         self.stop_btn.config(state='disabled')
         self.motion_start_time = None
         self.current_video_path = None
-        self.logger.info("Đã dừng xử lý bởi người dùng")
-
+        self.logger.info("Đã dừng xử lý bởi người dùng") 
     def on_closing(self):
         self.stop()
         self.root.destroy()

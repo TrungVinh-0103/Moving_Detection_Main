@@ -190,3 +190,182 @@
 2025-05-05 22:42:31,763 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
 2025-05-05 22:42:31,763 - D\u1eebng x\u1eed lý khung hình: running=False, cap=False, cap.isOpened=False
 2025-05-05 22:42:34,446 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:34:28,768 - Started processing: Camera ID: 0, FPS: 30.00
+2025-05-05 23:34:28,842 - B\u1eaft \u0111\u1ea7u ghi video camera: data/output\motion_20250505_233428.avi, FPS: 30.00
+2025-05-05 23:34:31,278 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233431.jpg
+2025-05-05 23:34:31,938 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233431.jpg
+2025-05-05 23:34:32,082 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,188 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,290 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,388 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,504 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,628 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,736 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,835 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:32,948 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233432.jpg
+2025-05-05 23:34:33,048 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233433.jpg
+2025-05-05 23:34:33,219 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233433.jpg
+2025-05-05 23:34:33,365 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233433.jpg
+2025-05-05 23:34:33,483 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233433.jpg
+2025-05-05 23:34:33,624 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233433.jpg
+2025-05-05 23:34:33,765 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233433.jpg
+2025-05-05 23:34:33,898 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233433.jpg
+2025-05-05 23:34:34,004 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:34,116 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:34,220 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:34,356 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:34,499 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:34,704 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:34,857 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:35,006 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233434.jpg
+2025-05-05 23:34:35,132 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233435.jpg
+2025-05-05 23:34:35,247 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233435.jpg
+2025-05-05 23:34:35,364 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233435.jpg
+2025-05-05 23:34:35,603 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233435.jpg
+2025-05-05 23:34:35,740 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233435.jpg
+2025-05-05 23:34:35,854 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233435.jpg
+2025-05-05 23:34:35,987 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233435.jpg
+2025-05-05 23:34:36,167 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233436.jpg
+2025-05-05 23:34:36,181 - \u0110ã ghi 44 khung hình vào video
+2025-05-05 23:34:36,188 - \u0110ã d\u1eebng ghi video b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:34:36,522 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:34:36,527 - D\u1eebng x\u1eed lý khung hình: running=False, cap=False, cap.isOpened=False
+2025-05-05 23:34:47,668 - Started processing: Camera ID: 0, FPS: 30.00
+2025-05-05 23:34:47,670 - B\u1eaft \u0111\u1ea7u ghi video camera: data/output\motion_20250505_233447.avi, FPS: 30.00
+2025-05-05 23:34:48,223 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233448.jpg
+2025-05-05 23:34:48,331 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233448.jpg
+2025-05-05 23:34:48,462 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233448.jpg
+2025-05-05 23:34:48,554 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233448.jpg
+2025-05-05 23:34:48,658 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233448.jpg
+2025-05-05 23:34:48,768 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233448.jpg
+2025-05-05 23:34:48,882 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233448.jpg
+2025-05-05 23:34:49,016 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,131 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,244 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,342 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,475 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,583 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,682 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,802 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:49,913 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233449.jpg
+2025-05-05 23:34:50,037 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233450.jpg
+2025-05-05 23:34:50,144 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233450.jpg
+2025-05-05 23:34:50,269 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233450.jpg
+2025-05-05 23:34:50,380 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233450.jpg
+2025-05-05 23:34:50,483 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233450.jpg
+2025-05-05 23:34:50,933 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233450.jpg
+2025-05-05 23:34:51,062 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233451.jpg
+2025-05-05 23:34:51,165 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233451.jpg
+2025-05-05 23:34:51,406 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233451.jpg
+2025-05-05 23:34:51,414 - \u0110ã ghi 31 khung hình vào video
+2025-05-05 23:34:51,415 - \u0110ã d\u1eebng ghi video b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:34:51,719 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:34:51,721 - D\u1eebng x\u1eed lý khung hình: running=False, cap=False, cap.isOpened=False
+2025-05-05 23:34:58,150 - Started processing: Camera ID: 0, FPS: 30.00
+2025-05-05 23:34:58,151 - B\u1eaft \u0111\u1ea7u ghi video camera: data/output\motion_20250505_233458.avi, FPS: 30.00
+2025-05-05 23:34:59,898 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233459.jpg
+2025-05-05 23:35:00,002 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233459.jpg
+2025-05-05 23:35:00,102 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,191 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,302 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,399 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,503 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,610 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,728 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,850 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:00,974 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233500.jpg
+2025-05-05 23:35:01,088 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:01,211 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:01,353 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:01,495 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:01,609 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:01,718 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:01,839 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:01,943 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233501.jpg
+2025-05-05 23:35:02,090 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:02,227 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:02,369 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:02,503 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:02,642 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:02,757 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:02,881 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:02,994 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233502.jpg
+2025-05-05 23:35:03,143 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233503.jpg
+2025-05-05 23:35:03,284 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233503.jpg
+2025-05-05 23:35:03,433 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233503.jpg
+2025-05-05 23:35:03,552 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233503.jpg
+2025-05-05 23:35:03,661 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233503.jpg
+2025-05-05 23:35:03,771 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233503.jpg
+2025-05-05 23:35:03,781 - \u0110ã ghi 46 khung hình vào video
+2025-05-05 23:35:03,782 - \u0110ã d\u1eebng ghi video b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:04,080 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:04,083 - D\u1eebng x\u1eed lý khung hình: running=False, cap=False, cap.isOpened=False
+2025-05-05 23:35:07,181 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:15,053 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:18,852 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:19,471 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:27,805 - \u0110ang phát video: C:/Users/HP/Desktop/moving_D-detection-main/data/output/motion_20250505_233447.avi, FPS: 30.0
+2025-05-05 23:35:28,931 - Video k\u1ebft thúc, quay l\u1ea1i \u0111\u1ea7u
+2025-05-05 23:35:29,141 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:29,144 - D\u1eebng phát video: viewing=False, cap=False, cap.isOpened=False
+2025-05-05 23:35:29,144 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:29,851 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:30,329 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:32,904 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:39,575 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:35:40,482 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:36:10,206 - Started processing: Camera ID: 0, FPS: 30.00
+2025-05-05 23:36:10,212 - B\u1eaft \u0111\u1ea7u ghi video camera: data/output\motion_20250505_233610.avi, FPS: 30.00
+2025-05-05 23:36:11,972 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233611.jpg
+2025-05-05 23:36:12,087 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233612.jpg
+2025-05-05 23:36:12,220 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233612.jpg
+2025-05-05 23:36:12,363 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233612.jpg
+2025-05-05 23:36:12,512 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233612.jpg
+2025-05-05 23:36:12,669 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233612.jpg
+2025-05-05 23:36:12,813 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233612.jpg
+2025-05-05 23:36:12,934 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233612.jpg
+2025-05-05 23:36:13,055 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:13,196 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:13,321 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:13,437 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:13,562 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:13,689 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:13,806 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:13,922 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233613.jpg
+2025-05-05 23:36:14,047 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233614.jpg
+2025-05-05 23:36:14,168 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233614.jpg
+2025-05-05 23:36:14,285 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233614.jpg
+2025-05-05 23:36:14,494 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233614.jpg
+2025-05-05 23:36:14,710 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233614.jpg
+2025-05-05 23:36:14,828 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233614.jpg
+2025-05-05 23:36:14,951 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233614.jpg
+2025-05-05 23:36:15,095 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233615.jpg
+2025-05-05 23:36:15,220 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233615.jpg
+2025-05-05 23:36:15,335 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233615.jpg
+2025-05-05 23:36:15,581 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233615.jpg
+2025-05-05 23:36:16,054 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:16,169 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:16,287 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:16,406 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:16,541 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:16,660 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:16,781 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:16,920 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233616.jpg
+2025-05-05 23:36:17,056 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:17,191 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:17,326 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:17,452 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:17,564 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:17,672 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:17,876 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:17,988 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233617.jpg
+2025-05-05 23:36:18,361 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233618.jpg
+2025-05-05 23:36:18,500 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233618.jpg
+2025-05-05 23:36:18,642 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233618.jpg
+2025-05-05 23:36:18,750 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233618.jpg
+2025-05-05 23:36:19,156 - L\u01b0u \u1ea3nh ch\u1ee5p: data/output\snapshot_20250505_233619.jpg
+2025-05-05 23:36:19,268 - \u0110ã ghi 63 khung hình vào video
+2025-05-05 23:36:19,270 - \u0110ã d\u1eebng ghi video b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:36:19,569 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
+2025-05-05 23:36:19,570 - D\u1eebng x\u1eed lý khung hình: running=False, cap=False, cap.isOpened=False
+2025-05-05 23:36:21,086 - \u0110ã d\u1eebng x\u1eed lý b\u1edfi ng\u01b0\u1eddi dùng
