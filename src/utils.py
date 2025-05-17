@@ -4,10 +4,6 @@ import datetime
 import yaml
 import logging
 
-def load_config(config_path):
-    """Đọc file cấu hình YAML."""
-    with open(config_path, 'r') as file:
-        return yaml.safe_load(file)
 
 def setup_logger(log_dir):
     """Thiết lập logger để ghi log."""
@@ -16,9 +12,18 @@ def setup_logger(log_dir):
     logging.basicConfig(
         filename=log_file,
         level=logging.INFO,
-        format="%(asctime)s - %(message)s"
+        encoding='utf-8',
+        format="%(asctime)s,%(msecs)03d - %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S"
     )
     return logging.getLogger()
+
+
+def load_config(config_path):
+    """Đọc file cấu hình YAML."""
+    with open(config_path, 'r') as file:
+        return yaml.safe_load(file)
+
 
 def get_output_writer(config, frame_height, timestamp, fps):
     """Tạo VideoWriter để ghi video định dạng AVI với FPS động."""
@@ -27,9 +32,7 @@ def get_output_writer(config, frame_height, timestamp, fps):
         raise ValueError(f"Đường dẫn '{output_dir}' tồn tại nhưng không phải thư mục. Vui lòng xóa hoặc đổi tên tệp.")
     os.makedirs(output_dir, exist_ok=True)
     output_path = os.path.join(output_dir, f"motion_{timestamp}.avi")
-    # Sử dụng codec XVID
     fourcc = cv2.VideoWriter_fourcc(*'XVID')
-    # Đảm bảo FPS hợp lệ
     if fps <= 0 or not fps:
         fps = config['video']['fps']
         logging.getLogger().warning(f"FPS không hợp lệ, dùng FPS mặc định: {fps}")
@@ -39,6 +42,7 @@ def get_output_writer(config, frame_height, timestamp, fps):
         fps,
         (config['video']['frame_width'], frame_height)
     ), output_path
+
 
 def initialize_capture(config, video_path=None):
     """Khởi tạo nguồn video hoặc camera, trả về FPS."""

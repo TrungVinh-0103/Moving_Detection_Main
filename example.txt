@@ -1,1 +1,761 @@
-java -jar haitac.jar 14.225.209.164 2239
+##Bước 1: Thiết lập dự án và môi trường trong VSCode
+- Tạo 1 folder đặt tên project "Moving_Detection_Main"
+- Open folder đó trong VSCODE
+- Tạo các folder con như sau:
+        Moving_Detection_Main/
+        ├── config/
+        ├── data/
+        │   ├── output/
+        ├── icons/
+        ├── logs/
+        ├── src/
+- Thiết lập môi trường Python: 
+    + Kiểm tra version bằng cách: tổ hợp Ctrl + ~, ở Terminal nhập python --version
+    + Cài Python 3.13.2
+    + Tạo môi trường ảo: 
+        => Tổ hợp Ctrl + Shift + P => gõ Python: Select Interpreter => Chọn Python 3.13.2 64-bit ~\Desktop\Python Training\python.exe (lưu ý chọn cái có Recommended)
+- Cài thư viện cơ bản:
+    + Trong Terminal, nhập và Enter từng dòng sau:
+        pip install opencv-python numpy pyyaml pillow
+        pip freeze > requirements.txt
+    + Thư viện:
+        opencv-python: Xử lý ảnh/video
+        numpy: Tính toán ma trận
+        pyyaml: Đọc cấu hình .yaml
+        pillow: Xử lý ảnh cho Tkinter
+- Tạo thêm file:
+    requirements.txt: Lưu danh sách thư viện
+    config/
+    ├── settings.yaml: Cấu hình ban đầu
+- Code:
+    Tại config/settings.yaml:
+        video:
+            source: camera
+            camera_id: 0
+            fps: 30
+            frame_width: 640
+            output_dir: data/output/
+        detector:
+            min_contour_area: 500
+            motion_duration_threshold: 5
+        log:
+            log_dir: logs/
+- Công thức/Thuật toán: Chưa áp dụng, chỉ thiết lập cấu hình
+
+##Bước 2: Xây dựng giao diện Tkinter cơ bản
+- Mục tiêu: Tạo giao diện với canvas, nút Open Camera, trạng thái
+- Trong folder project => vào src/ => chuột phải => chọn New File: 
+    Tạo 2 file sau:
+        src/__init__.py: File rỗng để đánh dấu module
+        src/main.py: File chính cho giao diện
+START============================================================================================================================================================================================
+- Viết code:
+    + Mở src/main.py trong VSCode, thêm:
+        import tkinter as tk
+        import tkinter.font as tkFont
+        from tkinter import ttk
+
+        class MotionDetectionApp:
+            def __init__(self, root):
+                self.root = root
+                self.root.title("Moving Detection Software")
+                self.root.configure(bg="#1246b5")
+                bold_font = tkFont.Font(family="Arial", size=16, weight="bold")
+                self.root.option_add("*Toplevel*TitleFont", bold_font)
+                window_width, window_height = 800, 600
+                screen_width = self.root.winfo_screenwidth()
+                screen_height = self.root.winfo_screenheight()
+                x = (screen_width - window_width) // 2
+                y = (screen_height - window_height) // 2
+                self.root.geometry(f"{window_width}x{window_height}+{x}+{y}")
+                self.main_frame = ttk.Frame(root, style="Rounded.TFrame")
+                self.main_frame.pack(padx=10, pady=10)
+                self.canvas = tk.Canvas(self.main_frame, width=640, height=480, bg="black", highlightthickness=3, highlightbackground="#ffffff")
+                self.canvas.pack(side=tk.LEFT, padx=5)
+                self.status_label = ttk.Label(root, text="Status: Idle", style="Rounded.TLabel")
+                self.status_label.pack(pady=5)
+                self.button_frame = ttk.Frame(root, style="Rounded.TFrame")
+                self.button_frame.pack(pady=10)
+                style = ttk.Style()
+                style.configure("Rounded.TFrame", background="#1246b5")
+                style.configure("Rounded.TLabel", background="#1246b5", foreground="white", font=("Arial", 12), borderwidth=2, relief="solid")
+                style.configure("Camera.TButton", background="#00cc00", font=("Arial", 10, "bold"))
+                self.open_camera_btn = ttk.Button(self.button_frame, text=" Open Camera", command=self.open_camera, style="Camera.TButton")
+                self.open_camera_btn.pack(side=tk.LEFT, padx=5)
+
+            def open_camera(self):
+                pass
+
+        if __name__ == "__main__":
+            root = tk.Tk()
+            app = MotionDetectionApp(root)
+            root.mainloop()
+END============================================================================================================================================================================================
+
+- Chạy thử  F5 hoặc Run => Start Debugging
+- Hoặc trong Terminal: python src\main.py 
+- Kết quả: Giao diện với canvas 640x480, nút Open Camera (#00cc00), nền #1246b5.
+- Công thức/Thuật toán: Không có, chỉ thiết lập giao diện
+
+##Bước 3: Thêm chức năng Open Camera và phát hiện chuyển động
+- Mục tiêu: Hiển thị feed camera, phát hiện chuyển động và vẽ khung xanh
+- Cài thư việntrong Terminal: imutils
+    pip install imutils
+    pip freeze > requirements.txt
+- Thêm file trong src/, nhấn New File:
+    src/utils.py: Hàm tiện ích.
+    src/detector.py: Phát hiện chuyển động.
+- Viết code:
+    + Tại src/utils.py:
+============================================================================================
+        import cv2
+        import os
+        import yaml
+
+        def load_config(config_path):
+            with open(config_path, 'r') as file:
+                return yaml.safe_load(file)
+
+        def initialize_capture(config):
+            source = config['video']['source']
+            fps = config['video']['fps']
+            if source == 'camera':
+                cap = cv2.VideoCapture(0)
+                source_info = "Camera"
+            else:
+                raise ValueError("Chỉ hỗ trợ camera")
+            if not cap.isOpened():
+                raise ValueError("Không thể mở camera")
+            return cap, source_info, fps
+============================================================================================
+    + Tại src/detector.py:
+============================================================================================
+        import cv2
+        import numpy as np
+
+        class MotionDetector:
+            def __init__(self, config):
+                self.min_contour_area = config['detector']['min_contour_area']
+                self.background = None
+
+            def process_frame(self, frame, width):
+                frame = cv2.resize(frame, (width, int(frame.shape[0] * width / frame.shape[1])))
+                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+                gray = cv2.GaussianBlur(gray, (21, 21), 0)
+                if self.background is None:
+                    self.background = gray
+                    return frame, "Initializing", False, 0, []
+                delta = cv2.absdiff(self.background, gray)
+                thresh = cv2.threshold(delta, 25, 255, cv2.THRESH_BINARY)[1]
+                thresh = cv2.dilate(thresh, None, iterations=2)
+                contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+                motion_detected = False
+                for contour in contours:
+                    if cv2.contourArea(contour) < self.min_contour_area:
+                        continue
+                    motion_detected = True
+                    (x, y, w, h) = cv2.boundingRect(contour)
+                    cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2)
+                return frame, "Motion Detected" if motion_detected else "No Motion", motion_detected, len(contours), []
+============================================================================================
+- Cập nhật src/main.py:
+    + Thêm import:
+===============================================================
+        import cv2
+        from PIL import Image, ImageTk
+        from src.utils import load_config, initialize_capture
+        from src.detector import MotionDetector
+===============================================================
+- Cập nhật __init__:
+===============================================================
+        self.cap = None
+        self.running = False
+        self.frame_width = 640
+        self.config = load_config("config/settings.yaml")
+        self.detector = None
+        style.configure("Stop.TButton", background="#ff3333", font=("Arial", 10, "bold"))
+        self.stop_btn = ttk.Button(self.button_frame, text=" Stop", command=self.stop, style="Stop.TButton", state=tk.DISABLED)
+        self.stop_btn.pack(side=tk.LEFT, padx=5)
+===============================================================
+- Thêm hàm open_camera, process_frames, stop:
+===============================================================
+        def open_camera(self):
+            if not self.running:
+                self.config['video']['source'] = 'camera'
+                self.cap, source_info, self.source_fps = initialize_capture(self.config)
+                self.frame_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT) * self.frame_width / self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                self.detector = MotionDetector(self.config)
+                self.running = True
+                self.open_camera_btn.config(state='disabled')
+                self.stop_btn.config(state='normal')
+                self.status_label.config(text=f"Status: {source_info}")
+                self.process_frames()
+
+        def process_frames(self):
+            if not self.running or not self.cap.isOpened():
+                return
+            ret, frame = self.cap.read()
+            if not ret:
+                return
+            frame = cv2.flip(frame, 1)
+            processed_frame, text, motion_detected, _, _ = self.detector.process_frame(frame, self.frame_width)
+            frame_rgb = cv2.cvtColor(processed_frame, cv2.COLOR_BGR2RGB)
+            img = Image.fromarray(frame_rgb)
+            img = ImageTk.PhotoImage(img)
+            self.canvas.create_image(0, 0, anchor=tk.NW, image=img)
+            self.canvas.image = img
+            self.status_label.config(text=f"Status: {text}")
+            if self.running:
+                self.root.after(33, self.process_frames)
+
+        def stop(self):
+            self.running = False
+            if self.cap:
+                self.cap.release()
+                self.cap = None
+            self.canvas.delete("all")
+            self.status_label.config(text="Status: Idle")
+            self.open_camera_btn.config(state='normal')
+            self.stop_btn.config(state='disabled')
+
+        def on_closing(self):
+            self.stop()
+            self.root.destroy()
+===============================================================
+- Chạy tử F5..
+- Kết quả: Feed camera hiển thị, khung xanh khi có chuyển động
+- Công thức/Thuật toán:
+- Phát hiện chuyển động:
+    + Chuyển mức xám: cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY).
+    + Làm mờ: cv2.GaussianBlur(gray, (21, 21), 0).
+    + Trừ nền: cv2.absdiff(background, gray).
+    + Ngưỡng: cv2.threshold(delta, 25, 255, cv2.THRESH_BINARY).
+    + Làm giãn: cv2.dilate(thresh, None, iterations=2).
+    + Tìm đường viền: cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE).
+    + Vẽ khung xanh: cv2.rectangle(frame, (x, y), (x + w, y + h), (0, 255, 0), 2).
+
+##Bước 4: Thêm ghi video và snapshot
+- Mục tiêu: Ghi video .avi (codec mp4v) khi có chuyển động, lưu snapshot .jpg.
+- Cập nhật:
+- Viết code:
+    + Tại src/utils.py:    
+
+        from datetime import datetime
+        def get_output_writer(config, frame_height, timestamp, fps):
+            output_dir = config['video']['output_dir']
+            os.makedirs(output_dir, exist_ok=True)
+            output_path = os.path.join(output_dir, f'motion_{timestamp}.avi')
+            fourcc = cv2.VideoWriter_fourcc(*'mp4v')
+            out = cv2.VideoWriter(output_path, fourcc, fps, (config['video']['frame_width'], frame_height))
+            if not out.isOpened():
+                raise ValueError(f"Không thể khởi tạo VideoWriter cho {output_path}")
+            return out, output_path
+    
+    + Tại src/main.py:
+        Thêm vào __init__:
+
+        self.out = None
+        self.motion_start_time = None
+        self.frame_counter = 0
+        self.latest_snapshot = None
+        self.snapshot_frame = ttk.Frame(self.main_frame, style="Rounded.TFrame")
+        self.snapshot_frame.pack(side=tk.RIGHT, padx=10)
+        self.snapshot_label = ttk.Label(self.snapshot_frame, text="Latest Snapshot", style="Rounded.TLabel")
+        self.snapshot_label.pack()
+        self.snapshot_canvas = tk.Canvas(self.snapshot_frame, width=160, height=120, bg="black", highlightthickness=3, highlightbackground="#ffffff")
+        self.snapshot_canvas.pack()
+
+- Cập nhật open_camera:
+
+        if self.config['video']['source'] == 'camera':
+        timestamp = time.strftime("%Y%m%d_%H%M%S")
+        self.out, output_path = get_output_writer(self.config, self.frame_height, timestamp, self.source_fps)
+
+- Cập nhật process_frames:
+
+        if self.out is not None and motion_detected:
+            self.out.write(processed_frame)
+            self.frame_counter += 1
+        if motion_detected:
+            if self.motion_start_time is None:
+                self.motion_start_time = time.time()
+            snapshot_path = os.path.join(self.config['video']['output_dir'], f"snapshot_{time.strftime('%Y%m%d_%H%M%S')}.jpg")
+            cv2.imwrite(snapshot_path, processed_frame)
+            self.update_snapshot(snapshot_path)
+        else:
+            self.motion_start_time = None
+
+        def update_snapshot(self, snapshot_path):
+            img = Image.open(snapshot_path)
+            img = img.resize((160, 120), Image.Resampling.LANCZOS)
+            self.latest_snapshot = ImageTk.PhotoImage(img)
+            self.snapshot_canvas.create_image(0, 0, anchor=tk.NW, image=self.latest_snapshot)
+
+- Cập nhật stop:
+        if self.out is not None:
+            self.out.release()
+            self.out = None
+            self.frame_counter = 0
+        self.snapshot_canvas.delete("all")
+
+-Chạy thử: Nhấn F5, chạy Open Camera, di chuyển trước camera, nhấn Stop
+- Công thức/Thuật toán:
+    + Ghi video: cv2.VideoWriter với mp4v, FPS camera, kích thước 640x480.
+    + Snapshot: cv2.imwrite khi phát hiện chuyển động.
+
+##Bước 5: Thêm chức năng Upload Video
+- Mục tiêu: Tải và hiển thị video .avi từ data/
+- Cập nhật file: src/utils.py, src/main.py
+- Viết code:
+    + Tại src/utils.py:
+
+        def initialize_capture(config, video_path=None):
+            source = config['video']['source']
+            fps = config['video']['fps']
+            if source == 'camera':
+                cap = cv2.VideoCapture(0)
+                source_info = "Camera"
+            elif source == 'video' and video_path:
+                cap = cv2.VideoCapture(video_path)
+                source_info = f"Video: {os.path.basename(video_path)}"
+            else:
+                raise ValueError("Nguồn video không hợp lệ")
+            if not cap.isOpened():
+                raise ValueError(f"Không thể mở nguồn video: {source_info}")
+            actual_fps = cap.get(cv2.CAP_PROP_FPS) or fps
+            return cap, source_info, actual_fps
+
+     + Tại src/main.py: thêm vào __init__:
+
+            style.configure("Upload.TButton", background="#1e90ff", font=("Arial", 10, "bold"))
+            self.upload_video_btn = ttk.Button(self.button_frame, text=" Upload Video", command=self.upload_video, style="Upload.TButton")
+            self.upload_video_btn.pack(side=tk.LEFT, padx=5)
+
+- Thêm hàm upload_video, start_processing:
+
+            from tkinter import filedialog, messagebox
+            def upload_video(self):
+                if not self.running:
+                    file_path = filedialog.askopenfilename(initialdir="data/", filetypes=[("Video files", "*.avi")])
+                    if file_path:
+                        self.config['video']['source'] = 'video'
+                        try:
+                            self.start_processing(video_path=file_path)
+                            messagebox.showinfo("Success", f"Video {os.path.basename(file_path)} loaded")
+                        except Exception as e:
+                            messagebox.showerror("Error", f"Lỗi: {str(e)}")
+
+            def start_processing(self, video_path=None):
+                self.cap, source_info, self.source_fps = initialize_capture(self.config, video_path)
+                self.frame_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT) * self.frame_width / self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                self.detector = MotionDetector(self.config)
+                self.running = True
+                self.open_camera_btn.config(state='disabled')
+                self.upload_video_btn.config(state='disabled')
+                self.stop_btn.config(state='normal')
+                self.status_label.config(text=f"Status: {source_info}")
+                self.process_frames()
+
+- Cập nhật process_frames:
+            if not ret and self.config['video']['source'] == 'video':
+            self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+            ret, frame = self.cap.read()
+
+- Chạy thử: Tạo sẵn 1 video, đổi đuôi .mp4 sang .avi rồi tử Upload lên
+- Kết quả: Video phát, khung xanh khi có chuyển động
+- Công thức/Thuật toán: Tương tự phát hiện chuyển động
+
+##Bước 6: Thêm chức năng Reset Background
+- Mục tiêu: Cập nhật nền để cải thiện phát hiện chuyển động
+- Cập nhật file: mở src/detector.py, src/main.py.
+- Viết code:
+        + Tại src/detector.py:
+
+            def reset_background(self):
+            self.background = None
+
+        + Tại src/main.py: thêm vào __init__
+
+            style.configure("Reset.TButton", background="#ffaa00", font=("Arial", 10, "bold"))
+            self.reset_btn = ttk.Button(self.button_frame, text=" Reset Background", command=self.reset_background, style="Reset.TButton", state=tk.DISABLED)
+            self.reset_btn.pack(side=tk.LEFT, padx=5)
+
+- Thêm hàm reset_background:
+
+            def reset_background(self):
+                if self.detector:
+                    self.detector.reset_background()
+
+- Cập nhật start_processing:
+
+            self.reset_btn.config(state='normal')
+
+- Cập nhật stop:
+
+            self.reset_btn.config(state='disabled')
+
+- Chạy thử: Nhấn F5, chạy Open Camera, nhấn Reset Background
+- Kết quả: Nền cập nhật, phát hiện chuyển động chính xác hơn
+- Công thức/Thuật toán: Đặt background = None, khung hình tiếp theo làm nền mới
+
+##Bước 7: Tích hợp YOLOv8 cho nhận diện đối tượng
+- Mục tiêu: Nhận diện đối tượng (như "person"), vẽ khung vàng
+- Cài thư viện:
+    pip install ultralytics
+    pip freeze > requirements.txt
+
+- Cập nhật file: mở config/settings.yaml, src/detector.py, src/main.py
+- Viết code: 
+    + Tại config/settings.yaml:
+
+        yolo:
+        model_path: yolov8n.pt
+
+    + Tại src/detector.py:
+
+        from ultralytics import YOLO
+        class MotionDetector:
+            def __init__(self, config):
+                self.min_contour_area = config['detector']['min_contour_area']
+                self.background = None
+                self.yolo_model = YOLO(config['yolo']['model_path'])
+
+            def process_frame(self, frame, width):
+                # ... (phát hiện chuyển động)
+                yolo_results = self.yolo_model(frame)
+                object_count = len(yolo_results[0].boxes)
+                yolo_detections = []
+                for box in yolo_results[0].boxes:
+                    x, y, w, h = box.xywh[0].tolist()
+                    label = self.yolo_model.names[int(box.cls)]
+                    cv2.rectangle(frame, (int(x-w/2), int(y-h/2)), (int(x+w/2), int(y+h/2)), (0, 255, 255), 2)
+                    cv2.putText(frame, label, (int(x-w/2), int(y-h/2)-10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 2)
+                    yolo_detections.append((label, box.conf.item()))
+                return frame, text, motion_detected, object_count, yolo_detections
+
+    + Tại src/main.py (cập nhật process_frames):
+
+        yolo_text = ", ".join([name for name, _ in yolo_results]) if yolo_results else "None"
+        self.status_label.config(text=f"Status: {text}, Objects: {object_count}, YOLO: {yolo_text}")
+
+- Chạy thử: 
+    Nhấn F5, chạy Open Camera, di chuyển người trước camera.
+- Kết quả: Khung vàng với nhãn "person".
+- Công thức/Thuật toán:
+    YOLOv8: Dự đoán hộp giới hạn và nhãn lớp từ mô hình học sâu.
+    Vẽ khung vàng: cv2.rectangle với tọa độ box.xywh.
+
+##Bước 8: Thêm chức năng View Video và Delete Video
+- Mục tiêu: Xem video .avi từ data/output/, xóa video, sửa lỗi NoneType
+- Cập nhật file: mở src/main.py.
+- Viết code: 
+    Thêm vào __init__:
+
+        self.viewing_video = False
+        self.current_video_path = None
+        style.configure("View.TButton", background="#4b0082", font=("Arial", 10, "bold"))
+        self.view_btn = ttk.Button(self.button_frame, text=" View Video", command=self.view_video, style="View.TButton")
+        self.view_btn.pack(side=tk.LEFT, padx=5)
+        style.configure("Delete.TButton", background="#dc143c", font=("Arial", 10, "bold"))
+        self.delete_btn = ttk.Button(self.button_frame, text=" Delete Video", command=self.delete_video, style="Delete.TButton", state=tk.DISABLED)
+        self.delete_btn.pack(side=tk.LEFT, padx=5)
+
+
+- Thêm hàm view_video, play_video, delete_video:
+
+        def view_video(self):
+            if self.running or self.viewing_video:
+                messagebox.showwarning("Warning", "Đang xử lý hoặc xem video khác. Vui lòng dừng trước!")
+                return
+            file_path = filedialog.askopenfilename(initialdir="data/output/", filetypes=[("Video files", "*.avi")])
+            if file_path:
+                try:
+                    if not os.path.exists(file_path):
+                        raise ValueError("File video không tồn tại.")
+                    self.cap = cv2.VideoCapture(file_path)
+                    if not self.cap.isOpened():
+                        raise ValueError("Không thể mở video. Đảm bảo file .avi dùng codec mp4v.")
+                    ret, frame = self.cap.read()
+                    if not ret or frame is None:
+                        raise ValueError("Không thể đọc khung hình từ video.")
+                    self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                    self.current_video_path = file_path
+                    self.source_fps = self.cap.get(cv2.CAP_PROP_FPS) or self.config['video']['fps']
+                    self.frame_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT) * self.frame_width / self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                    self.viewing_video = True
+                    self.open_camera_btn.config(state='disabled')
+                    self.upload_video_btn.config(state='disabled')
+                    self.view_btn.config(state='disabled')
+                    self.delete_btn.config(state='normal')
+                    self.stop_btn.config(state='normal')
+                    self.status_label.config(text=f"Status: Viewing {os.path.basename(file_path)}")
+                    self.play_video()
+                except Exception as e:
+                    messagebox.showerror("Error", f"Không thể phát video: {str(e)}")
+                    if self.cap:
+                        self.cap.release()
+                    self.cap = None
+                    self.current_video_path = None
+                    self.viewing_video = False
+                    self.delete_btn.config(state='disabled')
+                    self.stop_btn.config(state='disabled')
+                    self.status_label.config(text="Status: Idle")
+
+        def play_video(self):
+            if not self.viewing_video or not self.cap or not self.cap.isOpened():
+                self.stop()
+                return
+            ret, frame = self.cap.read()
+            if not ret or frame is None:
+                self.cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
+                ret, frame = self.cap.read()
+                if not ret or frame is None:
+                    self.stop()
+                    return
+            frame = cv2.resize(frame, (self.frame_width, self.frame_height))
+            frame_rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+            img = Image.fromarray(frame_rgb)
+            img = ImageTk.PhotoImage(img)
+            self.canvas.create_image(0, 0, anchor=tk.NW, image=img)
+            self.canvas.image = img
+            self.root.after(int(1000 / self.source_fps), self.play_video)
+
+        def delete_video(self):
+            if not self.viewing_video or self.current_video_path is None or not os.path.exists(self.current_video_path):
+                messagebox.showwarning("Warning", "Không có video nào đang được chọn để xóa.")
+                return
+            if messagebox.askyesno("Xác nhận", f"Bạn có chắc muốn xóa video {os.path.basename(self.current_video_path)}?"):
+                try:
+                    self.stop()
+                    os.remove(self.current_video_path)
+                    messagebox.showinfo("Success", f"Video {os.path.basename(self.current_video_path)} đã được xóa.")
+                except Exception as e:
+                    messagebox.showerror("Error", f"Không thể xóa video: {str(e)}")
+
+- Cập nhật stop:
+
+        self.viewing_video = False
+        self.current_video_path = None
+        self.view_btn.config(state='normal')
+        self.delete_btn.config(state='disabled')
+
+- Chạy thử:
+    + Tạo video .avi trong data/output/ (chạy Open Camera).
+    + Nhấn F5, chạy View Video, chọn video, nhấn Delete Video.
+    + Kết quả: Video phát, xóa thành công, không lỗi NoneType.
+- Công thức/Thuật toán: Đọc video bằng cv2.VideoCapture, phát khung hình với độ trễ 1000/FPS ms.
+
+##Bước 9: Thêm logging
+- Mục tiêu: Ghi log hoạt động và lỗi.
+- Cập nhật file: mmở src/utils.py, src/main.py.
+- Viết code:
+    + Tại src/utils.py:
+
+            import logging
+            def setup_logger(log_dir):
+                os.makedirs(log_dir, exist_ok=True)
+                log_file = os.path.join(log_dir, f'motion_log_{datetime.now().strftime("%Y%m%d_%H%M%S")}.txt')
+                logging.basicConfig(
+                    level=logging.DEBUG,
+                    format='%(asctime)s - %(levelname)s - %(message)s',
+                    handlers=[logging.FileHandler(log_file), logging.StreamHandler()]
+                )
+                return logging.getLogger()
+
+    + Tại src/main.py: 
+        * Thêm vào __init__
+
+            self.logger = setup_logger(self.config['log']['log_dir'])
+
+        * Thêm log vào các hàm (ví dụ):
+
+            self.logger.info(f"Started processing: {source_info}")
+            self.logger.error(f"Lỗi khi phát video {file_path}: {str(e)}")
+            self.logger.info(f"Đã xóa video: {self.current_video_path}")
+
+- Chạy thử: 
+    Nhấn F5, chạy các tính năng, kiểm tra logs/motion_log_*.txt.
+ Công thức/Thuật toán: Ghi log text.
+
+##Bước 10: Thêm icon và tối ưu giao diện
+- Mục tiêu: Thêm icon, tối ưu giao diện (nút View #4b0082, Delete #dc143c).
+-Tạo icon:
+    + Tạo thư mục icons/ trong projectproject.
+    + Tải icon (24x24 px, trừ security_camera.png 64x64 px) từ Flaticon:
+        icons/camera.png
+        icons/upload.png
+        icons/reset.png
+        icons/stop.png
+        icons/play.png
+        icons/delete.png
+        icons/security_camera.png
+- Cập nhật file: mở src/main.py.
+- Viết code: thêm vào __init__
+        self.icons = {
+            "open_camera": self.load_icon("icons/camera.png", (24, 24)),
+            "upload_video": self.load_icon("icons/upload.png", (24, 24)),
+            "reset_background": self.load_icon("icons/reset.png", (24, 24)),
+            "stop": self.load_icon("icons/stop.png", (24, 24)),
+            "view_video": self.load_icon("icons/play.png", (24, 24)),
+            "delete_video": self.load_icon("icons/delete.png", (24, 24))
+        }
+        try:
+            icon = tk.PhotoImage(file="icons/security_camera.png")
+            self.root.iconphoto(True, icon)
+        except Exception as e:
+            self.logger.error(f"Không thể tải icon cửa sổ: {str(e)}")
+
+- Thêm hàm load_icon:
+        def load_icon(self, path, size):
+        try:
+            img = Image.open(path).resize(size, Image.Resampling.LANCZOS)
+            return ImageTk.PhotoImage(img)
+        except Exception as e:
+            self.logger.error(f"Không thể tải icon {path}: {str(e)}")
+            return None
+
+- Cập nhật nút:
+        self.open_camera_btn = ttk.Button(..., image=self.icons["open_camera"], compound=tk.LEFT)
+        self.upload_video_btn = ttk.Button(..., image=self.icons["upload_video"], compound=tk.LEFT)
+        self.reset_btn = ttk.Button(..., image=self.icons["reset_background"], compound=tk.LEFT)
+        self.stop_btn = ttk.Button(..., image=self.icons["stop"], compound=tk.LEFT)
+        self.view_btn = ttk.Button(..., image=self.icons["view_video"], compound=tk.LEFT)
+        self.delete_btn = ttk.Button(..., image=self.icons["delete_video"], compound=tk.LEFT)
+
+-  Thêm style:
+        style.map("Camera.TButton", background=[('active', '#00e600')])
+        style.map("Upload.TButton", background=[('active', '#4aa8ff')])
+        style.map("Reset.TButton", background=[('active', '#ffbb33')])
+        style.map("Stop.TButton", background=[('active', '#ff6666')])
+        style.map("View.TButton", background=[('active', '#6a0dad')])
+        style.map("Delete.TButton", background=[('active', '#ff4040')])
+
+- Chạy thử: 
+    Nhấn F5, kiểm tra icon trên nút, giao diện hoàn chỉnh.
+- Công thức/Thuật toán: Không có, chỉ xử lý giao diện.    
+
+##Bước 11: Tối ưu hiệu suất và sửa lỗi
+- Mục tiêu: Thêm FPS, sửa lỗi NoneType, tối ưu hiệu suất.
+- Cập nhật file: mở src/main.py.
+- Viết code: thêm vào __init__
+
+        self.start_time = time.time()
+        self.frame_count = 0
+        self.fps_label = ttk.Label(root, text="FPS: 0.00", style="Rounded.TLabel")
+        self.fps_label.pack()
+
+- Cập nhật process_frames và play_video:
+        self.frame_count += 1
+        if self.frame_count % 10 == 0:
+            elapsed = time.time() - self.start_time
+            fps = self.frame_count / elapsed
+            self.fps_label.config(text=f"FPS: {fps:.2f}")
+        processing_time = (time.time() - start_time) * 1000
+        target_delay = max(1, int(1000 / self.source_fps))
+        adjusted_delay = max(1, int(target_delay - processing_time))
+        self.root.after(adjusted_delay, self.process_frames)
+ 
+- Chạy thử:
+    Nhấn F5, kiểm tra FPS, đảm bảo Delete Video không lỗi.
+- Công thức/Thuật toán:
+    FPS: frame_count / elapsed_time.
+    Độ trễ: adjusted_delay = 1000/FPS - processing_time.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
